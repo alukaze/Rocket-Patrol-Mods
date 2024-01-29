@@ -9,6 +9,7 @@ class Menu extends Phaser.Scene {
         this.load.image('spaceship', './assets/spaceship.png')
         this.load.image('fastship', './assets/fastship.png')
         this.load.image('starfield', './assets/starfield.png')
+        this.load.image('planets', './assets/planets.png')
         //load spritesheet
         this.load.spritesheet('explosion', './assets/explosion.png', {
             frameWidth: 64,
