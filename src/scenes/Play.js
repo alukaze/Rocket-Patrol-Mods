@@ -23,6 +23,9 @@ class Play extends Phaser.Scene {
         this.ship02 = new Spaceship(this, game.config.width + borderUISize*3, borderUISize*5 + borderPadding*2, 'spaceship', 0, 20).setOrigin(0,0)
         this.ship03 = new Spaceship(this, game.config.width, borderUISize*6 + borderPadding*4, 'spaceship', 0, 10).setOrigin(0,0)
 
+        //add speedy ship
+        this.fship = new Fastship(this, game.config.width + borderUISize*6, borderUISize*3.4, 'fastship', 0, 50).setOrigin(0, 0)
+
         //define keys
         keyFIRE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F)
         keyRESET = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R)
@@ -73,6 +76,7 @@ class Play extends Phaser.Scene {
             this.ship01.update()
             this.ship02.update()
             this.ship03.update()
+            this.fship.update()
         }
 
         //check collisions
@@ -87,6 +91,10 @@ class Play extends Phaser.Scene {
         if (this.checkCollision(this.p1Rocket, this.ship01)) {
             this.p1Rocket.reset()
             this.shipExplode(this.ship01)
+        }
+        if (this.checkCollision(this.p1Rocket, this.fship)) {
+            this.p1Rocket.reset()
+            this.shipExplode(this.fship)
         }
     }
 
