@@ -123,9 +123,13 @@ class Play extends Phaser.Scene {
             this.clock.delay += 5000
             this.shipExplode(this.fship)
         } 
-        if (this.p1Rocket.y <= borderUISize * 3 + borderPadding + 1) {
+        if (this.p1Rocket.y <= borderUISize * 3 + borderPadding + 1 && this.clock.delay >= 3000) { 
             this.clock.delay -= 3000
         }
+        if (this.p1Rocket.y <= borderUISize * 3 + borderPadding + 1 && this.clock.delay <= 3000) { 
+            this.clock.delay = 0
+        }
+        
     }
 
     checkCollision(rocket, ship) {
@@ -156,19 +160,19 @@ class Play extends Phaser.Scene {
         this.scoreLeft.text = this.p1Score
         
         let rng = Math.floor(Math.random() * 5) + 1;
-        if (rng = 1) {
+        if (rng == 1) {
             this.sound.play('sfx-explosion')
         }
-        else if (rng = 2) {
+        else if (rng == 2) {
             this.sound.play('sfx-explosion2')
         }
-        else if (rng = 3) {
+        else if (rng == 3) {
             this.sound.play('sfx-explosion3')
         }
-        else if (rng = 4) {
+        else if (rng == 4) {
             this.sound.play('sfx-explosion4')
         }
-        else if (rng = 5) {
+        else if (rng == 5) {
             this.sound.play('sfx-explosion5')
         }
     }
