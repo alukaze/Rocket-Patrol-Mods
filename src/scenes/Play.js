@@ -125,11 +125,9 @@ class Play extends Phaser.Scene {
         } 
         if (this.p1Rocket.y <= borderUISize * 3 + borderPadding + 1 && this.clock.delay >= 3000) { 
             this.clock.delay -= 3000
-            this.p1Rocket.reset()
         }
         if (this.p1Rocket.y <= borderUISize * 3 + borderPadding + 1 && this.clock.delay <= 3000) { 
             this.clock.delay = 0
-            this.p1Rocket.reset()
 
         }
         
